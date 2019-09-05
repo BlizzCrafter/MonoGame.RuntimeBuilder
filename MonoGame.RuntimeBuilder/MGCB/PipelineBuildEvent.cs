@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace MonoGame.Forms.DX.RuntimeBuilder.MGCB
+namespace MonoGame.RuntimeBuilder.MGCB
 {
 #pragma warning disable 1591
     public class PipelineBuildEvent

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Framework.Content.Pipeline.Builder;
 
-namespace MonoGame.Forms.DX.RuntimeBuilder.MGCB
+namespace MonoGame.RuntimeBuilder.MGCB
 {
 #pragma warning disable 1591
     public class PipelineProcessorContext : ContentProcessorContext

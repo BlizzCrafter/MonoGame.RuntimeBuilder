@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content.Pipeline;
 using System;
 
-namespace MonoGame.Forms.DX.RuntimeBuilder
+namespace MonoGame.RuntimeBuilder
 {
     /// <summary>
     /// A simple console logger logs information around the <see cref="RuntimeBuilder"/>.

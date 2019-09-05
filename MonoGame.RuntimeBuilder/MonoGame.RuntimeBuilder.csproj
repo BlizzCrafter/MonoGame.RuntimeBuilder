@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildResult.cs" />
+    <Compile Include="ConsoleLogger.cs" />
     <Compile Include="MGCB\Builder.cs" />
     <Compile Include="MGCB\PipelineBuildEvent.cs" />
     <Compile Include="MGCB\PipelineImporterContext.cs" />
@@ -52,6 +54,8 @@
     <Compile Include="MGCB\PipelineProcessorContext.cs" />
     <Compile Include="MGCB\SourceFileCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeBuilder.cs" />
+    <Compile Include="StringBuilderLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <ContentWithTargetPath Include="Libs\Assimp64.dll">
@@ -101,6 +105,22 @@
     <ContentWithTargetPath Include="Libs\PVRTexLibWrapper.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>PVRTexLibWrapper.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\SharpFont.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>SharpFont.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\SharpDX.D3DCompiler.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>SharpDX.D3DCompiler.dll</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>ffmpeg.exe</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Libs\ffprobe.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>ffprobe.exe</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

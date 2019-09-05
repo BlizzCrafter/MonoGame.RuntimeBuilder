@@ -1,4 +1,4 @@
-﻿namespace MonoGame.Forms.DX.RuntimeBuilder
+﻿namespace MonoGame.RuntimeBuilder
 {
     /// <summary>
     /// Shows how many content files were build successfully.

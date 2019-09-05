@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MonoGame.Forms.DX.RuntimeBuilder.MGCB
+namespace MonoGame.RuntimeBuilder.MGCB
 {
 #pragma warning disable 1591
     public class BuildContent

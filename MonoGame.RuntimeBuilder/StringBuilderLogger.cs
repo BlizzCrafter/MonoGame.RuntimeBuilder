@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace MonoGame.Forms.DX.RuntimeBuilder
+namespace MonoGame.RuntimeBuilder
 {
     /// <summary>
     /// A string builder logger logs information around the <see cref="RuntimeBuilder"/>.

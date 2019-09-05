@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
-using MonoGame.Forms.DX.RuntimeBuilder.MGCB;
+using MonoGame.RuntimeBuilder.MGCB;
 
-namespace MonoGame.Forms.DX.RuntimeBuilder
+namespace MonoGame.RuntimeBuilder
 {
     /// <summary>
     /// This class is a wrapper around the original MonoGameContentBuilder (MGCB).
@@ -136,7 +136,7 @@ namespace MonoGame.Forms.DX.RuntimeBuilder
         }
 
         /// <summary>
-        /// Builds the previously set raw content files asynchronously and outputs .XNB files.
+        /// Builds the previously set raw content files asynchronously and outputs them as .XNB files.
         /// </summary>
         /// <returns></returns>
         public async Task BuildContent()
@@ -147,7 +147,7 @@ namespace MonoGame.Forms.DX.RuntimeBuilder
         }
 
         /// <summary>
-        /// Builds raw content files specified in the files parameter and outputs them in .XNB files.
+        /// Builds raw content files specified in the files parameter and outputs them as .XNB files.
         /// </summary>
         /// <param name="files">The files you want to build. Please use absolute pathes.</param>
         /// <returns></returns>
