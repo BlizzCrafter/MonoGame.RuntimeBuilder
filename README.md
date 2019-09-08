@@ -14,7 +14,7 @@ but it is fully usable without the MonoGame.Forms library!
  
 ### Tutorial
 
-Using the MonoGame.RuntimeBuilder is fairly easy. You could use it for example in a fresh WindowsForms project like this:
+Using the MonoGame.RuntimeBuilder is fairly easy:
 
 ```c
 
@@ -44,3 +44,20 @@ private async void ButtonPickFiles_Click(object sender, System.EventArgs e)
 ```
 
 And... that's it!
+
+A content build list will be generated for you so that in case you just want to rebuild your files, you simply need to call **_RuntimeBuilder.BuildContent();** (without parameters) again.
+
+The [RuntimeBuilder.cs](https://github.com/sqrMin1/MonoGame.RuntimeBuilder/blob/master/MonoGame.RuntimeBuilder/RuntimeBuilder.cs#L12-L16) class is actually just a wrapper around the original [MGCB](https://github.com/MonoGame/MonoGame/tree/develop/Tools/MGCB "MonoGame.Content.Builder") tool, so it contains all of its features and functionality. Take a look at it and you will see that everything is pretty self-explanatory.
+
+Just one note:
+
+To get log information you need to use a **ContentBuildLogger**. You can also inherit from this class to build your own logger.
+
+Fortunately this library already contains a [StringBuilderLogger](https://github.com/sqrMin1/MonoGame.RuntimeBuilder/blob/master/MonoGame.RuntimeBuilder/StringBuilderLogger.cs#L8-L13) as an example :)
+
+There is generally a [sample project](https://github.com/sqrMin1/MonoGame.RuntimeBuilder/blob/master/MonoGame.RuntimeBuilder.Sample/Sample.cs#L8) included in this repo, which shows pretty much everything. It's fully documented (comments) as well as the most important parts of the library.
+
+### Now Have Fun with the MonoGame.RuntimeBuilder!
+[![Twitter Follow](https://img.shields.io/twitter/follow/SandboxBlizz.svg?style=flat-square&label=Follow&logo=twitter)](https://twitter.com/SandboxBlizz)
+
+![Logo](https://raw.githubusercontent.com/sqrMin1/MonoGame.Forms/master/Logos/Logo_Shadow_256.png)
