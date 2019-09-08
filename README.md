@@ -10,6 +10,8 @@
 > This library is a part of the [MonoGame.Forms](https://github.com/sqrMin1/MonoGame.Forms) project, 
 but it is fully usable without the MonoGame.Forms library!
 
+![Sample Project](doc/sample_project.png)
+
  ---
  
 ### Tutorial
