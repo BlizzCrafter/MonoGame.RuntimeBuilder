@@ -2,8 +2,8 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <ProjectGuid>{F6A7754B-CB3D-4AE6-ABEF-D877BCD03EBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -30,6 +30,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\MonoGame.RuntimeBuilder.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.8.0.60, Culture=neutral, processorArchitecture=MSIL">
@@ -37,7 +38,7 @@
       <HintPath>..\Libs\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Content.Pipeline">
-      <HintPath>..\Libs\MonoGame.Framework.Content.Pipeline.dll</HintPath>
+      <HintPath>..\Libs\MonoGame\MonoGame.Framework.Content.Pipeline.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,69 +59,85 @@
     <Compile Include="StringBuilderLogger.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="Libs\Assimp64.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\Assimp64.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Assimp64.dll</TargetPath>
+      <Link>NativeLibs\Assimp64.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\AssimpNet.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\AssimpNet.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>AssimpNet.dll</TargetPath>
+      <Link>NativeLibs\AssimpNet.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\ATI.TextureConverter.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\ATI.TextureConverter.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>ATI.TextureConverter.dll</TargetPath>
+      <Link>NativeLibs\ATI.TextureConverter.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\CppNet.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\CppNet.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>CppNet.dll</TargetPath>
+      <Link>NativeLibs\CppNet.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\FreeImage.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\ffmpeg.exe">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>FreeImage.dll</TargetPath>
+      <Link>NativeLibs\ffmpeg.exe</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\FreeImageNET.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\ffprobe.exe">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>FreeImageNET.dll</TargetPath>
+      <Link>NativeLibs\ffprobe.exe</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\freetype6.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\FreeImage.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>freetype6.dll</TargetPath>
+      <Link>NativeLibs\FreeImage.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\libmojoshader_64.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\FreeImageNET.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>libmojoshader_64.dll</TargetPath>
+      <Link>NativeLibs\FreeImageNET.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\Nvidia.TextureTools.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\freetype6.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Nvidia.TextureTools.dll</TargetPath>
+      <Link>NativeLibs\freetype6.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\nvtt.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\libmojoshader_64.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>nvtt.dll</TargetPath>
+      <Link>NativeLibs\libmojoshader_64.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\PVRTexLibNET.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\Nvidia.TextureTools.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>PVRTexLibNET.dll</TargetPath>
+      <Link>NativeLibs\Nvidia.TextureTools.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\PVRTexLibWrapper.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\nvtt.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>PVRTexLibWrapper.dll</TargetPath>
+      <Link>NativeLibs\nvtt.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\SharpFont.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\PVRTexLibNET.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>SharpFont.dll</TargetPath>
+      <Link>NativeLibs\PVRTexLibNET.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\SharpDX.D3DCompiler.dll">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\PVRTexLibWrapper.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>SharpDX.D3DCompiler.dll</TargetPath>
+      <Link>NativeLibs\PVRTexLibWrapper.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\ffmpeg.exe">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\SharpDX.D3DCompiler.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <TargetPath>ffmpeg.exe</TargetPath>
+      <Link>NativeLibs\SharpDX.D3DCompiler.dll</Link>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Libs\ffprobe.exe">
+    <ContentWithTargetPath Include="..\Libs\MGCB\NativeLibs\SharpFont.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <TargetPath>ffprobe.exe</TargetPath>
+      <Link>NativeLibs\SharpFont.dll</Link>
     </ContentWithTargetPath>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
