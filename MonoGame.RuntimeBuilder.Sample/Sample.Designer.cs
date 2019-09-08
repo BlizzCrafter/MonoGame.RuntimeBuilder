@@ -84,7 +84,7 @@
             this.buttonBuild.TabIndex = 2;
             this.buttonBuild.Text = "Build";
             this.buttonBuild.UseVisualStyleBackColor = true;
-            this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
+            this.buttonBuild.Click += new System.EventHandler(this.ButtonBuild_Click);
             // 
             // buttonPickFiles
             // 
@@ -97,7 +97,7 @@
             this.buttonPickFiles.TabIndex = 1;
             this.buttonPickFiles.Text = "Pick Files";
             this.buttonPickFiles.UseVisualStyleBackColor = true;
-            this.buttonPickFiles.Click += new System.EventHandler(this.buttonPickFiles_Click);
+            this.buttonPickFiles.Click += new System.EventHandler(this.ButtonPickFiles_Click);
             // 
             // flowLayoutPanelChecks
             // 
@@ -121,7 +121,7 @@
             this.checkBoxRebuild.TabIndex = 0;
             this.checkBoxRebuild.Text = "Rebuild";
             this.checkBoxRebuild.UseVisualStyleBackColor = true;
-            this.checkBoxRebuild.CheckedChanged += new System.EventHandler(this.checkBoxRebuild_CheckedChanged);
+            this.checkBoxRebuild.CheckedChanged += new System.EventHandler(this.CheckBoxRebuild_CheckedChanged);
             // 
             // checkBoxClean
             // 
@@ -132,7 +132,7 @@
             this.checkBoxClean.TabIndex = 1;
             this.checkBoxClean.Text = "Clean";
             this.checkBoxClean.UseVisualStyleBackColor = true;
-            this.checkBoxClean.CheckedChanged += new System.EventHandler(this.checkBoxClean_CheckedChanged);
+            this.checkBoxClean.CheckedChanged += new System.EventHandler(this.CheckBoxClean_CheckedChanged);
             // 
             // checkBoxIncremental
             // 
@@ -143,7 +143,7 @@
             this.checkBoxIncremental.TabIndex = 2;
             this.checkBoxIncremental.Text = "Incremental";
             this.checkBoxIncremental.UseVisualStyleBackColor = true;
-            this.checkBoxIncremental.CheckedChanged += new System.EventHandler(this.checkBoxIncremental_CheckedChanged);
+            this.checkBoxIncremental.CheckedChanged += new System.EventHandler(this.CheckBoxIncremental_CheckedChanged);
             // 
             // openFileDialog
             // 

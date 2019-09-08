@@ -14,16 +14,17 @@ namespace MonoGame.RuntimeBuilder.Sample
             InitializeComponent();
 
             _RuntimeBuilder = new RuntimeBuilder(
-                Path.Combine(Application.StartupPath, "working"),
-                Path.Combine(Application.StartupPath, "working", "obj"),
-                Path.Combine(Application.StartupPath, "Content", "Generated"),
-                TargetPlatform.Windows,
-                GraphicsProfile.Reach,
-                true)
+                Path.Combine(Application.StartupPath, "working"),           // working directory
+                Path.Combine(Application.StartupPath, "working", "obj"),    // intermediate directory
+                Path.Combine(Application.StartupPath, "Content"),           // output directory
+                TargetPlatform.Windows,                                     // target platform
+                GraphicsProfile.Reach,                                      // graphics profile
+                true)                                                       // compress the content
             {
-                Logger = new StringBuilderLogger()
+                Logger = new StringBuilderLogger()                          // logger
             };
 
+            // When the StringBuilderLogger logs a message, we write it to a RichTextBox and scroll to the end of it.
             ((StringBuilderLogger)_RuntimeBuilder.Logger).OnMessageLogged += (log) =>
             {
                 richTextBoxLog.Text = log;
@@ -33,7 +34,7 @@ namespace MonoGame.RuntimeBuilder.Sample
         }
 
         // Pick Files & Build Content
-        private async void buttonPickFiles_Click(object sender, System.EventArgs e)
+        private async void ButtonPickFiles_Click(object sender, System.EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -42,7 +43,7 @@ namespace MonoGame.RuntimeBuilder.Sample
         }
 
         // Build Content
-        private async void buttonBuild_Click(object sender, System.EventArgs e)
+        private async void ButtonBuild_Click(object sender, System.EventArgs e)
         {
             await _RuntimeBuilder.BuildContent();
         }
@@ -50,19 +51,19 @@ namespace MonoGame.RuntimeBuilder.Sample
         #region Checkmarks
 
         // Check Rebuild
-        private void checkBoxRebuild_CheckedChanged(object sender, System.EventArgs e)
+        private void CheckBoxRebuild_CheckedChanged(object sender, System.EventArgs e)
         {
             _RuntimeBuilder.Rebuild = checkBoxRebuild.Checked;
         }
 
         // Check Clean
-        private void checkBoxClean_CheckedChanged(object sender, System.EventArgs e)
+        private void CheckBoxClean_CheckedChanged(object sender, System.EventArgs e)
         {
             _RuntimeBuilder.Clean = checkBoxClean.Checked;
         }
 
         // Check Incremental
-        private void checkBoxIncremental_CheckedChanged(object sender, System.EventArgs e)
+        private void CheckBoxIncremental_CheckedChanged(object sender, System.EventArgs e)
         {
             _RuntimeBuilder.Incremental = checkBoxIncremental.Checked;
         }
