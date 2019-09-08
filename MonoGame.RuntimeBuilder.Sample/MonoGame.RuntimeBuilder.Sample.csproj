@@ -58,11 +58,11 @@
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.8.0.60, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\Libs\MonoGame\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Content.Pipeline, Version=3.8.0.60, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\MonoGame.Framework.Content.Pipeline.dll</HintPath>
+      <HintPath>..\Libs\MonoGame\MonoGame.Framework.Content.Pipeline.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
