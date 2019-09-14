@@ -4,14 +4,14 @@
     <id>MonoGame.RuntimeBuilder</id>
     <version>$version$</version>
     <title>MonoGame.RuntimeBuilder</title>
-    <authors>Marcel 'sqrMin1' Härtel</authors>
+    <authors>Marcel Härtel</authors>
     <owners>Marcel Härtel, SandboxBlizz</owners>
     <projectUrl>https://github.com/sqrMin1/MonoGame.RuntimeBuilder</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/sqrMin1/MonoGame.Forms/master/Logos/LogoSquare_256.png</iconUrl>
 	<license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>MonoGame RuntimeBuilder builds your raw content asynchronously to the .XNB format during runtime. Note: You can use this library without MonoGame.Forms!</description>
-    <copyright>Copyright (c) 2019 Marcel 'sqrMin1' Härtel, SandboxBlizz</copyright>
+    <copyright>Copyright (c) 2019 Marcel Härtel, SandboxBlizz</copyright>
     <tags>MonoGame WindowsForms</tags>
 	<references>
 		<group targetFramework="net461">
