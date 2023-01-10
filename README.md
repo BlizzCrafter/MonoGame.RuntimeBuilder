@@ -2,7 +2,6 @@
 
 # Welcome to the MonoGame.RuntimeBuilder!
 
- [![Twitter Follow](https://img.shields.io/twitter/follow/blizz_crafter.svg?style=flat-square&label=Follow&logo=twitter)](https://twitter.com/blizz_crafter)
  [![NuGet](https://img.shields.io/badge/NuGet-MonoGame.RuntimeBuilder-blue.svg?style=flat-square&logo=NuGet&colorA=3260c4&colorB=77c433)](https://www.nuget.org/packages/MonoGame.RuntimeBuilder)
   
  The MonoGame.RuntimeBuilder **builds** your **raw** content **asynchronously** to the **.XNB** format **during runtime**. 
@@ -60,6 +59,5 @@ Fortunately this library already contains a [StringBuilderLogger](https://github
 There is generally a [sample project](https://github.com/sqrMin1/MonoGame.RuntimeBuilder/blob/master/MonoGame.RuntimeBuilder.Sample/Sample.cs#L8) included in this repo, which shows pretty much everything. It's fully documented (comments) as well as the most important parts of the library.
 
 ### Now Have Fun with the MonoGame.RuntimeBuilder!
-[![Twitter Follow](https://img.shields.io/twitter/follow/blizz_crafter.svg?style=flat-square&label=Follow&logo=twitter)](https://twitter.com/blizz_crafter)
 
 ![Logo](https://raw.githubusercontent.com/sqrMin1/MonoGame.Forms/master/Logos/Logo_Shadow_256.png)
