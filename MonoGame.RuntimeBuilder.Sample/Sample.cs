@@ -1,7 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content.Pipeline;
+using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Graphics;
-using System.IO;
-using System.Windows.Forms;
 
 namespace MonoGame.RuntimeBuilder.Sample
 {

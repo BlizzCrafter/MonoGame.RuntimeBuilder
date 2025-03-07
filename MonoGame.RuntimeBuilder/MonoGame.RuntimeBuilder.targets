@@ -1,8 +1,0 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="RuntimeBuilder->CopyNativeLibs" AfterTargets="Build">  
-    <ItemGroup>
-      <NativeLibs Include="$(MSBuildThisFileDirectory)NativeLibs\**\*.*" />
-    </ItemGroup>  
-      <Copy SourceFiles="@(NativeLibs)" DestinationFolder="$(TargetDir)" />	
-  </Target>
-</Project>
