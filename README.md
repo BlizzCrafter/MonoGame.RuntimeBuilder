@@ -1,9 +1,8 @@
 ![Banner](https://raw.githubusercontent.com/sqrMin1/MonoGame.Forms/master/Logos/Logo_Banner_800.png)
 
 # Welcome to the MonoGame.RuntimeBuilder!
+[![Version](https://img.shields.io/nuget/v/MonoGame.RuntimeBuilder?style=for-the-badge&logo=NuGet&logoColor=0289CC&logoSize=auto&label=MonoGame.RuntimeBuilder&labelColor=262626&color=707070)](https://www.nuget.org/packages/MonoGame.RuntimeBuilder)
 
- [![NuGet](https://img.shields.io/badge/NuGet-MonoGame.RuntimeBuilder-blue.svg?style=flat-square&logo=NuGet&colorA=3260c4&colorB=77c433)](https://www.nuget.org/packages/MonoGame.RuntimeBuilder)
-  
  The MonoGame.RuntimeBuilder **builds** your **raw** content **asynchronously** to the **.XNB** format **during runtime**. 
  
 > This library is a part of the [MonoGame.Forms](https://github.com/sqrMin1/MonoGame.Forms) project, 
