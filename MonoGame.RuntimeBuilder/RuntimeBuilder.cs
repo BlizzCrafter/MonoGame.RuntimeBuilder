@@ -67,6 +67,48 @@ namespace MonoGame.RuntimeBuilder
         public string Processor { set { InitializationCheck(); _BuildContent.SetProcessor(value); } }
 
         /// <summary>
+        /// Sets the working directory where raw content files are copied before building.
+        /// </summary>
+        /// <param name="path">The path to the working directory.</param>
+        public void SetWorkingDir(string path) => _BuildContent.SetWorkingDir(path);
+
+        /// <summary>
+        /// Sets the directory where all intermediate files are written.
+        /// </summary>
+        /// <param name="path">The path to the intermediate directory.</param>
+        public void SetIntermediateDir(string path) => _BuildContent.SetIntermediateDir(path);
+
+        /// <summary>
+        /// Sets the directory where all built content is written.
+        /// </summary>
+        /// <param name="path">The path to the output directory.</param>
+        public void SetOutputDir(string path) => _BuildContent.SetOutputDir(path);
+
+        /// <summary>
+        /// Sets the target platform for the build.
+        /// </summary>
+        /// <param name="platform">The target platform.</param>
+        public void SetPlatform(TargetPlatform platform) => _BuildContent.Platform = platform;
+
+        /// <summary>
+        /// Sets the graphics profile for the build.
+        /// </summary>
+        /// <param name="profile">The graphics profile.</param>
+        public void SetGraphicsProfile(GraphicsProfile profile) => _BuildContent.Profile = profile;
+
+        /// <summary>
+        /// Sets whether the content should be compressed.
+        /// </summary>
+        /// <param name="compress">True to compress content, false otherwise.</param>
+        public void SetCompressContent(bool compress) => _BuildContent.CompressContent = compress;
+
+        /// <summary>
+        /// Sets the build configuration.
+        /// </summary>
+        /// <param name="config">The build configuration.</param>
+        public void SetConfig(string config) => _BuildContent.Config = config;
+
+        /// <summary>
         /// An optional parameter which adds one or more assembly references which contains importers, processors, or writers needed during content building.
         /// </summary>
         /// <param name="references"></param>

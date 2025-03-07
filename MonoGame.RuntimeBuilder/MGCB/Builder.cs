@@ -5,52 +5,52 @@ using MonoGame.Framework.Content.Pipeline.Builder;
 namespace MonoGame.RuntimeBuilder.MGCB
 {
 #pragma warning disable 1591
-    public class BuildContent
+    internal class BuildContent
     {
-        public bool LaunchDebugger = false;
-        public bool Quiet = false;
-        public List<string> ResponseFiles
+        internal bool LaunchDebugger = false;
+        internal bool Quiet = false;
+        internal List<string> ResponseFiles
         {
             get { throw new InvalidOperationException(); }
             set { throw new InvalidOperationException(); }
         }
 
-        public void SetWorkingDir(string path)
+        internal void SetWorkingDir(string path)
         {
             Directory.SetCurrentDirectory(path);
         }
-
-        private string _outputDir = string.Empty;
-        public void SetOutputDir(string path)
+        
+        internal void SetOutputDir(string path)
         {
             _outputDir = Path.GetFullPath(path);
         }
+        private string _outputDir = string.Empty;
 
-        private string _intermediateDir = string.Empty;
-        public void SetIntermediateDir(string path)
+        internal void SetIntermediateDir(string path)
         {
             _intermediateDir = Path.GetFullPath(path);
         }
+        private string _intermediateDir = string.Empty;
 
-        public bool Rebuild = false;
+        internal bool Rebuild = false;
 
-        public bool Clean = false;
+        internal bool Clean = false;
 
-        public bool Incremental = false;
+        internal bool Incremental = false;
 
-        public readonly List<string> References = new List<string>();
+        internal readonly List<string> References = new List<string>();
 
-        public TargetPlatform Platform = TargetPlatform.Windows;
+        internal TargetPlatform Platform = TargetPlatform.Windows;
 
-        public GraphicsProfile Profile = GraphicsProfile.HiDef;
+        internal GraphicsProfile Profile = GraphicsProfile.HiDef;
 
-        public string Config = string.Empty;
+        internal string Config = string.Empty;
 
-        public string Importer = null;
+        internal string Importer = null;
 
-        public ContentBuildLogger Logger = new ConsoleLogger();
+        internal ContentBuildLogger Logger = new ConsoleLogger();
 
-        public void SetProcessor(string processor)
+        internal void SetProcessor(string processor)
         {
             _processor = processor;
 
@@ -62,7 +62,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
         private string _processor = null;
         private readonly OpaqueDataDictionary _processorParams = new OpaqueDataDictionary();
 
-        public void AddProcessorParam(string nameAndValue)
+        internal void AddProcessorParam(string nameAndValue)
         {
             var keyAndValue = nameAndValue.Split('=', ':');
             if (keyAndValue.Length != 2)
@@ -75,7 +75,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
             _processorParams.Add(keyAndValue[0], keyAndValue[1]);
         }
         
-        public void OnBuild(string sourceFile)
+        internal void OnBuild(string sourceFile)
         {
             string link = null;
             if (sourceFile.Contains(";"))
@@ -118,7 +118,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
                 item.ProcessorParams.Add(pair.Key, pair.Value);
         }
 
-        public void OnCopy(string sourceFile)
+        internal void OnCopy(string sourceFile)
         {
             string link = null;
             if (sourceFile.Contains(";"))
@@ -143,23 +143,23 @@ namespace MonoGame.RuntimeBuilder.MGCB
             _copyItems.Add(new CopyItem { SourceFile = sourceFile, Link = link });
         }
 
-        public bool CompressContent = false;
+        internal bool CompressContent = false;
 
-        public class ContentItem
+        internal class ContentItem
         {
-            public string SourceFile;
+            internal string SourceFile;
 
             // This refers to the "Link" which can override the default output location
-            public string OutputFile;
-            public string Importer;
-            public string Processor;
-            public OpaqueDataDictionary ProcessorParams;
+            internal string OutputFile;
+            internal string Importer;
+            internal string Processor;
+            internal OpaqueDataDictionary ProcessorParams;
         }
 
-        public class CopyItem
+        internal class CopyItem
         {
-            public string SourceFile;
-            public string Link;
+            internal string SourceFile;
+            internal string Link;
         }
 
         private readonly List<ContentItem> _content = new List<ContentItem>();
@@ -168,7 +168,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
 
         private PipelineManager _manager;
 
-        public bool HasWork
+        internal bool HasWork
         {
             get { return _content.Count > 0 || _copyItems.Count > 0 || Clean; }
         }
@@ -184,7 +184,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
                 .Replace("$(Profile)", this.Profile.ToString());
         }
 
-        public async Task<BuildResult> Build()
+        internal async Task<BuildResult> Build()
         {
             int successCount, errorCount;
 
