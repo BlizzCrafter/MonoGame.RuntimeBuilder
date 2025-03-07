@@ -1,0 +1,21 @@
+<Project>
+	<PropertyGroup>
+		<Version>$(RuntimeBuilderVersion)</Version>
+		<Authors>Marcel Härtel</Authors>
+		<PackageId>MonoGame.RuntimeBuilder</PackageId>
+		<Product>MonoGame.RuntimeBuilder</Product>
+		<Title>MonoGame.RuntimeBuilder</Title>
+		<Description>MonoGame RuntimeBuilder builds your raw content asynchronously to the .XNB format during runtime.</Description>
+		<PackageProjectUrl>https://github.com/BlizzCrafter/MonoGame.RuntimeBuilder</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/BlizzCrafter/MonoGame.RuntimeBuilder.git</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageTags>MonoGame; ContentBuilder; RuntimeBuilder; MGCB; Pipeline;</PackageTags>
+		<PackageOutputPath>../</PackageOutputPath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+</Project>
