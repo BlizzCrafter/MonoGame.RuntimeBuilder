@@ -32,6 +32,14 @@ namespace MonoGame.RuntimeBuilder.MGCB
         }
         private string _intermediateDir = string.Empty;
 
+        internal void CleanContent()
+        {
+            foreach (var item in _content)
+            {
+                _manager.CleanContent(item.SourceFile, item.OutputFile);
+            }
+        }
+
         internal bool Rebuild = false;
 
         internal bool Clean = false;

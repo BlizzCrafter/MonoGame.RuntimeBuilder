@@ -54,6 +54,11 @@ namespace MonoGame.RuntimeBuilder
         public string Config { set { InitializationCheck(); _BuildContent.Config = value; } }
 
         /// <summary>
+        /// Launch Debugger for debugging custom pipeline classes directly inside such classes.
+        /// </summary>
+        public bool LaunchDebugger { set { InitializationCheck(); _BuildContent.LaunchDebugger = value; } get { return _BuildContent.LaunchDebugger; } }
+
+        /// <summary>
         /// An optional parameter which defines the class name of the content importer for reading source content. If the option is omitted or used without a class name the default content importer for the source type is used.
         /// </summary>
         public string Importer { set { InitializationCheck(); _BuildContent.Importer = value; } }
@@ -109,6 +114,17 @@ namespace MonoGame.RuntimeBuilder
         public void SetConfig(string config) => _BuildContent.Config = config;
 
         /// <summary>
+        /// Deletes all previously built content and intermediate files.
+        /// </summary>
+        public void CleanContent() => _BuildContent.CleanContent();
+
+        /// <summary>
+        /// Checks if there is any work to be done.
+        /// </summary>
+        /// <returns>True if there is work to be done, false otherwise.</returns>
+        public bool HasWork() => _BuildContent.HasWork;
+
+        /// <summary>
         /// An optional parameter which adds one or more assembly references which contains importers, processors, or writers needed during content building.
         /// </summary>
         /// <param name="references"></param>
@@ -133,7 +149,7 @@ namespace MonoGame.RuntimeBuilder
         private BuildContent _BuildContent;
         private Assembly _ContentPipelineReference;
 
-        private void FinalizeBuild(int success, int error) => Logger.LogMessage($"\nBuild {success} succeeded, {error} failed.\n");
+        private void FinalizeBuild(int success, int error) => Logger.LogMessage($"Build {success} succeeded, {error} failed.");
 
         private void InitializationCheck()
         {
