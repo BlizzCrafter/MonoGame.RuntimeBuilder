@@ -1,5 +1,5 @@
 <Project>
 	<PropertyGroup>
-		<RuntimeBuilderVersion>2.0.0</RuntimeBuilderVersion>
+		<RuntimeBuilderVersion>2.1.0</RuntimeBuilderVersion>
 	</PropertyGroup>
 </Project>
