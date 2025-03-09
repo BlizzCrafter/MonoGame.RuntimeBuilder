@@ -190,9 +190,12 @@ namespace MonoGame.RuntimeBuilder
         }
 
         /// <summary>
-        /// Builds the previously set raw content files asynchronously and outputs them as .XNB files.
+        /// Starts the build process which builds or copies files to the output directory.
+        ///
+        /// <remarks>
+        /// Remember to register content first via <c>RegisterBuildContent</c> and <c>RegisterCopyContent</c>!
+        /// </remarks>
         /// </summary>
-        /// <returns></returns>
         public async Task BuildContent()
         {
             var result = await _BuildContent.Build();
@@ -201,25 +204,48 @@ namespace MonoGame.RuntimeBuilder
         }
 
         /// <summary>
-        /// Builds raw content files specified in the files parameter and outputs them as .XNB files.
+        /// Register build content for building raw content files specified in the files parameter and outputs them as .XNB files.
         /// </summary>
         /// <param name="files">The files you want to build. Please use absolute pathes.</param>
         /// <returns></returns>
-        public async Task BuildContent(params string[] files)
+        public void RegisterBuildContent(params string[] files)
         {
             foreach (string file in files)
             {
-                string fileName = Path.GetFileName(file);
-                string destinationFile = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-
-                File.Copy(file, destinationFile, true);
-
-                _BuildContent.OnBuild(fileName);
+                CopyOverContentFiles(file);
+                _BuildContent.OnBuild(file);
             }
+        }
 
-            var result = await _BuildContent.Build();
+        /// <summary>
+        /// Register copy content when no build procession (to .XNB) is neccessary.
+        /// </summary>
+        /// <param name="files">The files you want to copy. Please use absolute pathes.</param>
+        /// <returns></returns>
+        public void RegisterCopyContent(params string[] files)
+        {
+            foreach (string file in files)
+            {
+                CopyOverContentFiles(file);
+                _BuildContent.OnCopy(file);
+            }
+        }
 
-            FinalizeBuild(result.Success, result.Error);
+        /// <summary>
+        /// Copy over content from outside the Content directory.
+        /// </summary>
+        private void CopyOverContentFiles(string file)
+        {
+            string destinationFile = Path.Combine(Directory.GetCurrentDirectory(), file);
+
+            if (!File.Exists(destinationFile))
+            {
+                using (var sourceStream = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (var destinationStream = new FileStream(destinationFile, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    sourceStream.CopyTo(destinationStream);
+                }
+            }
         }
     }
 }
