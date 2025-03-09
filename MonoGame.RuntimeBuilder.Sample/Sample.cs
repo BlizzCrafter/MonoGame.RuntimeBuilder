@@ -36,7 +36,8 @@ namespace MonoGame.RuntimeBuilder.Sample
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                await _RuntimeBuilder.BuildContent(openFileDialog.FileNames);
+                _RuntimeBuilder.RegisterBuildContent(openFileDialog.FileNames);
+                await _RuntimeBuilder.BuildContent();
             }
         }
 
