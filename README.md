@@ -38,7 +38,8 @@ private async void ButtonPickFiles_Click(object sender, System.EventArgs e)
 {
     if (openFileDialog.ShowDialog() == DialogResult.OK)
     {
-        await _RuntimeBuilder.BuildContent(openFileDialog.FileNames);
+        _RuntimeBuilder.RegisterBuildContent(openFileDialog.FileNames);
+        await _RuntimeBuilder.BuildContent();
     }
 }
 ```
