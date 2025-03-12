@@ -82,7 +82,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
             _processorParams.Remove(keyAndValue[0]);
             _processorParams.Add(keyAndValue[0], keyAndValue[1]);
         }
-        
+
         internal void OnBuild(string sourceFile)
         {
             string link = null;
@@ -317,21 +317,30 @@ namespace MonoGame.RuntimeBuilder.MGCB
                         message += ": ";
                     }
                     message += ex.Message;
+                    Logger.LogWarning(null, null, message);
                     Console.WriteLine(message);
                     ++errorCount;
                 }
                 catch (PipelineException ex)
                 {
+                    Logger.LogWarning(null, null, "{0}: error: {1}", c.SourceFile, ex.Message);
                     Console.Error.WriteLine("{0}: error: {1}", c.SourceFile, ex.Message);
                     if (ex.InnerException != null)
+                    {
+                        Logger.LogWarning(null, null, ex.InnerException.ToString());
                         Console.Error.WriteLine(ex.InnerException.ToString());
+                    }
                     ++errorCount;
                 }
                 catch (Exception ex)
                 {
+                    Logger.LogWarning(null, null, "{0}: error: {1}", c.SourceFile, ex.Message);
                     Console.Error.WriteLine("{0}: error: {1}", c.SourceFile, ex.Message);
                     if (ex.InnerException != null)
+                    {
+                        Logger.LogWarning(null, null, ex.InnerException.ToString());
                         Console.Error.WriteLine(ex.InnerException.ToString());
+                    }
                     ++errorCount;
                 }
             }
@@ -376,9 +385,15 @@ namespace MonoGame.RuntimeBuilder.MGCB
                         if (srcTime <= dstTime)
                         {
                             if (string.IsNullOrEmpty(c.Link))
+                            {
+                                Logger.LogMessage("Skipping {0}", c.SourceFile);
                                 Console.WriteLine("Skipping {0}", c.SourceFile);
+                            }
                             else
+                            {
+                                Logger.LogMessage("Skipping {0} => {1}", c.SourceFile, c.Link);
                                 Console.WriteLine("Skipping {0} => {1}", c.SourceFile, c.Link);
+                            }
 
                             // Copy the stats from the previous stats collection.
                             _manager.ContentStats.CopyPreviousStats(c.SourceFile);
@@ -403,9 +418,15 @@ namespace MonoGame.RuntimeBuilder.MGCB
                     var buildTime = DateTime.UtcNow - startTime;
 
                     if (string.IsNullOrEmpty(c.Link))
+                    {
+                        Logger.LogMessage("{0}", c.SourceFile);
                         Console.WriteLine("{0}", c.SourceFile);
+                    }
                     else
+                    {
+                        Logger.LogMessage("{0} => {1}", c.SourceFile, c.Link);
                         Console.WriteLine("{0} => {1}", c.SourceFile, c.Link);
+                    }
 
                     // Record content stats on the copy.
                     _manager.ContentStats.RecordStats(c.SourceFile, dest, "CopyItem", typeof(File), (float)buildTime.TotalSeconds);
