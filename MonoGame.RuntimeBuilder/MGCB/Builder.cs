@@ -108,6 +108,11 @@ namespace MonoGame.RuntimeBuilder.MGCB
             if (previous != -1)
                 _content.RemoveAt(previous);
 
+            // Remove from _copyItems if it exists there
+            var copyItemIndex = _copyItems.FindIndex(e => string.Equals(e.SourceFile, sourceFile, StringComparison.InvariantCultureIgnoreCase));
+            if (copyItemIndex != -1)
+                _copyItems.RemoveAt(copyItemIndex);
+
             // Create the item for processing later.
             var item = new ContentItem
             {
@@ -147,6 +152,11 @@ namespace MonoGame.RuntimeBuilder.MGCB
             var previous = _copyItems.FindIndex(e => string.Equals(e.SourceFile, sourceFile, StringComparison.InvariantCultureIgnoreCase));
             if (previous != -1)
                 _copyItems.RemoveAt(previous);
+
+            // Remove from _content if it exists there
+            var contentItemIndex = _content.FindIndex(e => string.Equals(e.SourceFile, sourceFile, StringComparison.InvariantCultureIgnoreCase));
+            if (contentItemIndex != -1)
+                _content.RemoveAt(contentItemIndex);
 
             _copyItems.Add(new CopyItem { SourceFile = sourceFile, Link = link });
         }
