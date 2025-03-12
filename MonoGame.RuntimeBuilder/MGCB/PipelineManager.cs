@@ -530,7 +530,8 @@ namespace MonoGame.RuntimeBuilder.MGCB
             string outputFilepath = null, 
             string importerName = null, 
             string processorName = null, 
-            OpaqueDataDictionary processorParameters = null)
+            OpaqueDataDictionary processorParameters = null,
+            Dictionary<string, List<string>> dependencies = null)
         {
             sourceFilepath = PathHelper.Normalize(sourceFilepath);
             ResolveOutputFilepath(sourceFilepath, ref outputFilepath);
@@ -546,6 +547,15 @@ namespace MonoGame.RuntimeBuilder.MGCB
                 Processor = processorName,
                 Parameters = ValidateProcessorParameters(processorName, processorParameters),
             };
+
+            var sourcefileName = Path.GetFileName(sourceFilepath);
+            if (dependencies.TryGetValue(sourcefileName, out List<string>? value))
+            {
+                foreach (var dependency in value)
+                {
+                    contentEvent.Dependencies.AddUnique(dependency);
+                }
+            }
 
             // Load the previous content event if it exists.
             string eventFilepath;

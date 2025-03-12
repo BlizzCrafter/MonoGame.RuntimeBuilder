@@ -40,6 +40,15 @@ namespace MonoGame.RuntimeBuilder.MGCB
             }
         }
 
+        internal void AddDependencies(string sourceFile, List<string> dependencies)
+        {
+            if (_dependencies.ContainsKey(sourceFile)) return;
+
+            _dependencies.Add(sourceFile, dependencies);
+        }
+
+        private Dictionary<string, List<string>> _dependencies = new();
+
         internal bool Rebuild = false;
 
         internal bool Clean = false;
@@ -299,7 +308,8 @@ namespace MonoGame.RuntimeBuilder.MGCB
                                           c.OutputFile,
                                           c.Importer,
                                           c.Processor,
-                                          c.ProcessorParams);
+                                          c.ProcessorParams,
+                                          _dependencies);
 
                     newContent.SourceFiles.Add(c.SourceFile);
                     newContent.DestFiles.Add(c.OutputFile);

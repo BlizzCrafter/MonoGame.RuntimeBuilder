@@ -125,6 +125,18 @@ namespace MonoGame.RuntimeBuilder
         public bool HasWork() => _BuildContent.HasWork;
 
         /// <summary>
+        /// Adds dependencies for a given source file.
+        /// </summary>
+        /// <param name="sourceFile">The source file for which dependencies are being added.</param>
+        /// <param name="dependencies">A list of dependencies to be added for the source file.</param>
+        public void AddDependencies(string sourceFile, List<string> dependencies)
+        {
+            InitializationCheck();
+
+            _BuildContent.AddDependencies(sourceFile, dependencies);
+        }
+
+        /// <summary>
         /// An optional parameter which adds one or more assembly references which contains importers, processors, or writers needed during content building.
         /// </summary>
         /// <param name="references"></param>
