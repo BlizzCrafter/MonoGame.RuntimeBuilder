@@ -397,6 +397,7 @@ namespace MonoGame.RuntimeBuilder.MGCB
 
                             // Copy the stats from the previous stats collection.
                             _manager.ContentStats.CopyPreviousStats(c.SourceFile);
+                            ++successCount;
                             continue;
                         }
                     }
