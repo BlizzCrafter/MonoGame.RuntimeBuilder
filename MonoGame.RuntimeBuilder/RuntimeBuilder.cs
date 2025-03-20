@@ -137,6 +137,17 @@ namespace MonoGame.RuntimeBuilder
         }
 
         /// <summary>
+        /// Clears all dependencies for the build content.
+        /// Should always be called before setting dependencies for all content files to ensure a fresh dependency list.
+        /// </summary>
+        public void ClearAllDependencies()
+        {
+            InitializationCheck();
+
+            _BuildContent.ClearAllDependencies();
+        }
+
+        /// <summary>
         /// An optional parameter which adds one or more assembly references which contains importers, processors, or writers needed during content building.
         /// </summary>
         /// <param name="references"></param>
