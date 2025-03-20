@@ -42,9 +42,11 @@ namespace MonoGame.RuntimeBuilder.MGCB
 
         internal void AddDependencies(string sourceFile, List<string> dependencies)
         {
-            if (_dependencies.ContainsKey(sourceFile)) return;
-
-            _dependencies.Add(sourceFile, dependencies);
+            if (_dependencies.ContainsKey(sourceFile))
+            {
+                _dependencies[sourceFile] = dependencies;
+            }
+            else _dependencies.Add(sourceFile, dependencies);
         }
 
         private Dictionary<string, List<string>> _dependencies = new();
