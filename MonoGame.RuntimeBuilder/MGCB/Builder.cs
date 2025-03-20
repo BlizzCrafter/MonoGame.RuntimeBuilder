@@ -31,6 +31,34 @@ namespace MonoGame.RuntimeBuilder.MGCB
             _intermediateDir = Path.GetFullPath(path);
         }
         private string _intermediateDir = string.Empty;
+        
+        internal void SetImporterAndProcessor(string sourceFile, string importer, string processor)
+        {
+            if (_importersProcessors.ContainsKey(sourceFile))
+            {
+                _importersProcessors[sourceFile] = new(importer, processor);
+            }
+            else _importersProcessors.Add(sourceFile, new(importer, processor));
+        }
+
+        private void GetImporterAndProcessor(string sourceFile, out string importer, out string processor)
+        {
+            if (_importersProcessors.TryGetValue(Path.GetFileName(sourceFile), out (string Importer, string Processor) value))
+            {
+                importer = value.Importer;
+                processor = value.Processor;
+            }
+            else
+            {
+                importer = Importer;
+                processor = _processor;
+            }
+        }
+
+        internal void ClearAllImportersAndProcessors()
+        {
+            _importersProcessors.Clear();
+        }
 
         internal void CleanContent()
         {
@@ -55,19 +83,16 @@ namespace MonoGame.RuntimeBuilder.MGCB
         }
 
         private Dictionary<string, List<string>> _dependencies = new();
-
-        internal bool Rebuild = false;
-
-        internal bool Clean = false;
-
-        internal bool Incremental = false;
+        private Dictionary<string, (string Importer, string Processor)> _importersProcessors = new();
 
         internal readonly List<string> References = new List<string>();
 
+        internal bool Rebuild = false;
+        internal bool Clean = false;
+        internal bool Incremental = false;
+
         internal TargetPlatform Platform = TargetPlatform.Windows;
-
         internal GraphicsProfile Profile = GraphicsProfile.HiDef;
-
         internal string Config = string.Empty;
 
         internal string Importer = null;
@@ -129,13 +154,15 @@ namespace MonoGame.RuntimeBuilder.MGCB
             if (copyItemIndex != -1)
                 _copyItems.RemoveAt(copyItemIndex);
 
+            GetImporterAndProcessor(sourceFile, out string importer, out string processor);
+
             // Create the item for processing later.
             var item = new ContentItem
             {
                 SourceFile = sourceFile,
                 OutputFile = link,
-                Importer = Importer,
-                Processor = _processor,
+                Importer = importer,
+                Processor = processor,
                 ProcessorParams = new OpaqueDataDictionary()
             };
             _content.Add(item);

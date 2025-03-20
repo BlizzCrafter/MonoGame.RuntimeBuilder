@@ -125,6 +125,29 @@ namespace MonoGame.RuntimeBuilder
         public bool HasWork() => _BuildContent.HasWork;
 
         /// <summary>
+        /// Sets the importer and processor for a specific content item (sourceFile).
+        /// </summary>
+        /// <param name="sourceFile">The source file for which the importer and processor are being set.</param>
+        /// <param name="importer">The class name of the content importer.</param>
+        /// <param name="processor">The class name of the content processor.</param>
+        public void SetImporterAndProcessor(string sourceFile, string importer, string processor)
+        {
+            InitializationCheck();
+
+            _BuildContent.SetImporterAndProcessor(sourceFile, importer, processor);
+        }
+
+        /// <summary>
+        /// Clears all importers and processors for all content items.
+        /// </summary>
+        public void ClearAllImportersAndProcessors()
+        {
+            InitializationCheck();
+
+            _BuildContent.ClearAllImportersAndProcessors();
+        }
+
+        /// <summary>
         /// Adds dependencies for a given source file.
         /// </summary>
         /// <param name="sourceFile">The source file for which dependencies are being added.</param>
